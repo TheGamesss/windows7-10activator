@@ -1,5 +1,14 @@
 @echo off
 
+:: Check for administrative rights
+net session >nul 2>&1
+if %errorLevel% NEQ 0 (
+    echo You need to have admin rights to run this program.
+    echo Press any key to exit...
+    pause >nul
+    exit /b
+)
+
 title Activate Windows 7 / 8 / 8.1 / 10 for FREE!&cls&echo =====================================&echo Copyright: TheGamesss&echo =====================================&echo.&echo Supported products:&echo - Windows 7 Professional&echo - Windows 7 Professional N&echo - Windows 7 Professional E&echo - Windows 7 Enterprise&echo - Windows 7 Enterprise N&echo - Windows 7 Enterprise E&echo - Windows 8 Core&echo - Windows 8 Core Single Language&echo - Windows 8 Professional&echo - Windows 8 Professional N&echo - Windows 8 Professional WMC&echo - Windows 8 Enterprise&echo - Windows 8 Enterprise N&echo - Windows 8.1 Core&echo - Windows 8.1 Core N&echo - Windows 8.1 Core Single Language&echo - Windows 8.1 Professional&echo - Windows 8.1 Professional N&echo - Windows 8.1 Professional WMC&echo - Windows 8.1 Enterprise&echo - Windows 8.1 Enterprise N&echo - Windows 10 Home&echo - Windows 10 Home N&echo - Windows 10 Home Single Language&echo - Windows 10 Home Country Specific&echo - Windows 10 Professional&echo - Windows 10 Professional N&echo - Windows 10 Education N&echo - Windows 10 Education N&echo - Windows 10 Enterprise&echo - Windows 10 Enterprise N&echo - Windows 10 Enterprise LTSB&echo - Windows 10 Enterprise LTSB N&echo.&echo =====================================&echo Would you like to proceed with activating your Windows? [Y/N]
 
 choice /c YN /n
@@ -8,7 +17,7 @@ if errorlevel 2 (
     exit
 )
 
-echo -------------------------------------&echo Activating your Windows... 
+echo -------------------------------------&echo Activating your Windows... (This may take a while)
 cscript //nologo c:\windows\system32\slmgr.vbs /ipk FJ82H-XT6CR-J8D7P-XQJJ2-GPDD4 >nul
 cscript //nologo c:\windows\system32\slmgr.vbs /ipk MRPKT-YTG23-K7D7T-X2JMM-QY7MG >nul
 cscript //nologo c:\windows\system32\slmgr.vbs /ipk W82YF-2Q76Y-63HXB-FGJG9-GF7QX >nul
